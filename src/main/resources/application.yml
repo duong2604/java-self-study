@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+  servlet:
+    context-path: /api/v1
+
+spring:
+  application:
+    name: security-system
+  datasource:
+    url: jdbc:postgresql://localhost:5432/security_system
+    username: duongvb
+    password: duongvb
+  jpa:
+    hibernate:
+        ddl-auto: update
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
