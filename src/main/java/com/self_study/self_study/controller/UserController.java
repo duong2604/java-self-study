@@ -2,8 +2,10 @@ package com.self_study.self_study.controller;
 
 import com.self_study.self_study.dto.request.UserCreationRequest;
 import com.self_study.self_study.dto.request.UserUpdateRequest;
+import com.self_study.self_study.dto.response.ApiResponse;
 import com.self_study.self_study.entity.User;
 import com.self_study.self_study.service.UserService;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -23,13 +25,15 @@ public class UserController {
     UserService userService;
 
     @PostMapping
-    public User createNewUser(@RequestBody UserCreationRequest request) {
+    public User createNewUser(@RequestBody @Valid UserCreationRequest request) {
         return userService.addNewUser(request);
     }
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getUsers();
+    public ApiResponse<List<User>> getAllUsers() {
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setResult(userService.getUsers());
+        return  apiResponse;
     }
 
     @GetMapping("{userId}")
