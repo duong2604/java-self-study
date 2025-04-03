@@ -12,4 +12,5 @@ import lombok.experimental.FieldDefaults;
 @Builder
 public class AuthenticatedResponse {
     boolean  authenticated;
+    String token;
 }

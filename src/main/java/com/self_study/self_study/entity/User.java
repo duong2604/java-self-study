@@ -1,14 +1,18 @@
 package com.self_study.self_study.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Data;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 
+@Getter
+@Setter
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "users")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
@@ -20,4 +24,5 @@ public class User {
      String password;
      String email;
      LocalDate dob;
+     Set<String> roles;
 }

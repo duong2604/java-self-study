@@ -8,6 +8,7 @@ public enum ErrorCode {
     UNCATEGORIZED(9999, "Uncategorized"),
     EMAIL_EXISTED(4001, "Email existed."),
     EMAIL_NOT_FOUND(4002, "Email not found."),
+    UNAUTHENTICATED(4003, "Unauthenticated"),
     ;
     private Integer code;
     private String message;
